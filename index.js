@@ -1,4 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-console.log("Hey!");
+
+document.addEventListener("DOMContentLoaded", event => {
+    console.log("Hey!");
+});

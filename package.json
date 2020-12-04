@@ -1,0 +1,16 @@
+{
+  "name": "Parcel-Firestore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "firebase": "^8.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "parcel index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
