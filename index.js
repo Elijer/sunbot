@@ -10,6 +10,13 @@ document.addEventListener("DOMContentLoaded", event => {
     var db = firebase.firestore();
     handleEmulators(db);
 
-    console.log(db);
+
+    // Local Emulators Test
+    var citiesRef = db.collection("cities");
+    citiesRef.doc("sferd").set({
+        name: "San Francisco", state: "CA", country: "USA",
+        capital: false, population: 860000,
+        regions: ["west_coast", "norcal"]
+    });
 
 });

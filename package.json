@@ -8,7 +8,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "parcel index.js"
+    "test": "parcel index.html",
+    "ems": "firebase emulators:start",
+    "port": "lsof -n -i4TCP:8080 | grep LISTEN"
   },
   "keywords": [],
   "author": "",
