@@ -12,10 +12,11 @@ document.addEventListener("DOMContentLoaded", event => {
 
 
     // Local Emulators Test
-    var citiesRef = db.collection("cities");
-    citiesRef.doc("sferd").set({
-        name: "San Francisco", state: "CA", country: "USA",
-        capital: false, population: 860000,
+    var citiesRef = db.collection("firestore-collection");
+    citiesRef.doc("firestore-document").set({
+        name: "Some document", state: "VA", country: "USA?",
+        capital: false,
+        ridesBicycles: "sure",
         regions: ["west_coast", "norcal"]
     });
 
