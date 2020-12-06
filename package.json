@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@firebase/auth": "^0.15.3",
     "firebase": "^8.1.2"
   },
   "devDependencies": {},
   "scripts": {
     "test": "parcel index.html",
     "ems": "firebase emulators:start",
-    "port": "lsof -n -i4TCP:8080 | grep LISTEN"
+    "build": "parcel build index.js",
+    "port": "lsof -n -i4TCP:4000 | grep LISTEN"
   },
   "keywords": [],
   "author": "",
