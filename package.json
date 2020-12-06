@@ -10,7 +10,8 @@
   "scripts": {
     "test": "parcel index.html",
     "ems": "firebase emulators:start",
-    "port": "lsof -n -i4TCP:8080 | grep LISTEN"
+    "build": "parcel build index.js",
+    "port": "lsof -n -i4TCP:4000 | grep LISTEN"
   },
   "keywords": [],
   "author": "",
