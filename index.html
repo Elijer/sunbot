@@ -22,74 +22,85 @@
 
   <body id = "fade-in">
 
-    <h1> ✨🌙 Katie's Period Tracker ✨🌙 </h1>
+    <div id = "title">
+      <h1> ✨🌙 Katie's Period Tracker ✨🌙 </h1>
+    </div>
 
-    <div id = "date"></div>
-    <div id = "time"></div>
+    <div id = "date">
+      <div id = "day"></div>
+      <div id = "time"></div>
+    </div>
 
+    <div id = "form">
 
-    <h2> Today I...</h2>
+      <div id = "today">
+        <h2> Today I...</h2>
+      </div>
 
-    <h3>Went outside;</h3>
-    <button id = "outsideYes"> Yes </button>
-    <button id = "outsideNo"> No </button>
-
-    <h3>Cried this many times;</h3>
-    <button> - </button>
-    <button id = "crynumber"> 0 </button>
-    <button> + </button>
-
-    <h3> Had this much energy <span id = "dayRegion">(in the morning)</span></h3>
-    <button>Little</button>
-    <button>Some</button>
-    <button>Lots</button>
-
-    <h3>Took birth control:</h3>
-    <table style="width:30%">
-      <tr>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-      </tr>
-      <tr>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-      </tr>
-      <tr>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-      </tr>
-      <tr>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-      </tr>
-      <tr>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-      </tr>
-      <tr>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-      </tr>
-      <tr>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-        <td>[]</td>
-      </tr>
-
-    </table>
+      <div class = "section">
+        <h3>Went outside;</h3>
+        <button id = "outsideYes" class = "btn"> Yes </button>
+        <button id = "outsideNo" class = "btn"> No </button>
+      </div>
+      
+      <div class = "section">
+        <h3>Cried this many times;</h3>
+        <button id = "lessCry" class = "btn"> - </button>
+        <button id = "cryNumber"> 0 </button>
+        <button id = "moreCry" class = "btn"> + </button>
+      </div>
+      
+      <div class = "section">
+        <h3> Had this much energy <span id = "dayRegion">(in the morning)</span></h3>
+        <button class = "btn">Little</button>
+        <button class = "btn">Some</button>
+        <button class = "btn">Lots</button>
+      </div>
+      
+      <div class = "section">
+        <h3>Took birth control:</h3>
+        <table style="width:30%">
+          <tr>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+          </tr>
+          <tr>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+          </tr>
+          <tr>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+          </tr>
+          <tr>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+            <td>[]</td>
+          </tr>
+          
+    
+        </table>
+      </div>
+    </div>
 
     <!--JS-->
     <script src = "/index.js"> </script>

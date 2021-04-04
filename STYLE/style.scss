@@ -9,7 +9,51 @@ html {
     //font-family: 'Ubuntu', sans-serif;
 }
 
+#title {
+    color: gold;
+    background: purple;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#date {
+    color: grey;
+
+    #day {
+        float: left;
+    }
+
+    #time {
+        float: right;
+    }
+
+}
+
+#date, #form {
+    padding: 20px 20px 20px 20px;
+}
+
+#today {
+    padding-bottom: 15px;
+}
+
+.section {
+    padding-bottom: 30px;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 17px;
+    background: #e8e8e8;
+}
+
+.btn:active {
+    background: red;
+}
 
 @media only screen and (max-width: 400px) {
-
+    h1 {
+        font-size: 20px;
+    }
 }
