@@ -23,7 +23,6 @@ var outsideOptions = [gg("outsideYes"), gg("outsideNo")];
 
 outsideOptions.forEach(function(e){
     e.addEventListener("click", function(){
-        var grey = "rgb(232, 232, 232);"
         if (e.id === "outsideYes"){
             e.style.background = "red";
             outsideOptions[1].style.background = "#e8e8e8";
@@ -39,7 +38,6 @@ var cryOptions = [gg("moreCry"), gg("lessCry")];
 cryOptions.forEach(function(e){
 
     e.addEventListener("click", function(){
-        var grey = "rgb(232, 232, 232);"
         if (e.id === "lessCry"){
             if (gg("cryNumber").innerHTML > 0){
                 gg("cryNumber").innerHTML--;
@@ -49,6 +47,19 @@ cryOptions.forEach(function(e){
         }
     })
 });
+
+var energyOptions = [gg("little"), gg("some"), gg("lots")];
+
+energyOptions.forEach(function(e){
+    e.addEventListener("click", function(){
+        energyOptions.forEach(function(s){
+            s.style.background = "#e8e8e8";
+        })
+
+        e.style.background = "red";
+
+    })
+})
 
 
 var displayDate = function(){
