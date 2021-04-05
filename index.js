@@ -10,7 +10,10 @@ import moment from 'moment';
 
 document.addEventListener("DOMContentLoaded", event => {
 
-    displayDate();
+    var state = {};
+
+    displayDate(state);
+    console.log(state.date);
     
     firebase.initializeApp(firebaseConfig);
     var db = firebase.firestore();
@@ -62,12 +65,41 @@ energyOptions.forEach(function(e){
 })
 
 
-var displayDate = function(){
+var displayDate = function(state){
 
     var dateElement = gg("day");
     var timeElement = gg("time");
+    var theMoment = moment();
+    var dayRegion;
+
+    var timeOfDay = gg("dayRegion");
+    var timesOfDay = ["morning", "afternoon", "evening"];
+    var morningStart = moment('2:00am', 'h:mma');
+    var morningEnd = moment('11:59am', 'h:mma');
+    var middayEnd = moment('6:00pm', 'h:mma');
+
+    if (theMoment.isBefore(middayEnd) && theMoment.isAfter(morningEnd)){
+        dayRegion = "midday"
+        //midday
+    } else if (theMoment.isBefore(morningEnd) && theMoment.isAfter(morningStart)){
+        dayRegion = "morning";
+        //morning
+    } else if (theMoment.isAfter(middayEnd)){
+       dayRegion = "evening";
+        //evening
+    }
+
+    gg("dayRegion").innerHTML = dayRegion;
+    //gg("timeOfDay").innerHTML = dayRegion;
+    
+
+    state.date = moment().format('L');
+
+
+
+
     //dateElement.innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
-    dateElement.innerHTML = moment().format('dddd, MMM Do');
-    timeElement.innerHTML = moment().format('h:mm a');
+    dateElement.innerHTML = theMoment.format('dddd, MMM Do');
+    timeElement.innerHTML = theMoment.format('h:mm a');
 
 }

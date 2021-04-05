@@ -16,20 +16,21 @@ html {
     margin-bottom: 10px;
 }
 
-#date {
+#date, #timeOfDay {
     color: grey;
 
     #day {
         float: left;
     }
 
-    #time {
+
+    #time, #timeOfDay {
         float: right;
     }
 
 }
 
-#date, #form {
+#date, #form, #timeOfDay {
     padding: 20px 20px 20px 20px;
 }
 
@@ -50,6 +51,17 @@ button {
 
 .btn:active {
     background: red;
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+.grid-item {
+    padding: 5px;
+    background: grey;
 }
 
 @media only screen and (max-width: 400px) {
