@@ -11,7 +11,7 @@ html {
 
 #title {
     color: gold;
-    background: purple;
+    background: #6e5cc8;
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -50,7 +50,7 @@ button {
 }
 
 .btn:active {
-    background: red;
+    background: #6e5cc8;
 }
 
 .grid-container {
@@ -62,10 +62,11 @@ button {
 .grid-item {
     padding: 5px;
     background: #e8e8e8;
+    //color: #6e5cc8;
 }
 
 .grid-item:active {
-    background: red;
+    background: #6e5cc8;
 }
 
 @media only screen and (max-width: 400px) {

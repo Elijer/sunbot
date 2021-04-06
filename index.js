@@ -76,12 +76,12 @@ var initializeForm = function(state){
         e.addEventListener("click", function(){
             var went;
             if (e.id === "outsideYes"){
-                e.style.background = "red";
+                e.style.background = "#6e5cc8";
                 outsideOptions[1].style.background = "#e8e8e8";
                 went = true;
     
             } else {
-                outsideOptions[1].style.background = "red";
+                outsideOptions[1].style.background = "#6e5cc8";
                 outsideOptions[0].style.background = "#e8e8e8";
                 went = false;
             }
@@ -112,6 +112,8 @@ var initializeForm = function(state){
                 gg("cryNumber").innerHTML++;
             }
 
+            gg("cryNumber").style.background = "#6e5cc8";
+
             var cryNumber = gg("cryNumber").innerHTML;
             state.entryRef.set({
                 cryTally: cryNumber
@@ -141,7 +143,7 @@ var initializeForm = function(state){
                 }
             })
     
-            e.style.background = "red";
+            e.style.background = "#6e5cc8";
             
             var docObj = {};
             var energyField = 'energy' + state.timeOfDay;
@@ -209,7 +211,7 @@ var createbCGrid = function(state){
                 gg(`grid-item-${j}`).style.background = "#e8e8e8";
             }
 
-            e.path[0].style.background = "red";
+            e.path[0].style.background = "#6e5cc8";
             
             state.entryRef.set({
                 bcNumber: i+1,
