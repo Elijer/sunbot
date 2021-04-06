@@ -61,7 +61,11 @@ button {
 
 .grid-item {
     padding: 5px;
-    background: grey;
+    background: #e8e8e8;
+}
+
+.grid-item:active {
+    background: red;
 }
 
 @media only screen and (max-width: 400px) {
