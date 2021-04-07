@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/functions';
 
 import { firebaseConfig } from "./helpers/firebaseConfig";
 import { handleEmulators } from "./helpers/handleEmulators";
@@ -15,6 +16,10 @@ document.addEventListener("DOMContentLoaded", event => {
     var db = firebase.firestore();
     handleEmulators(db);
     firestoreTest(db);
+
+        // test HTTPs function
+/*         var findNewGame = firebase.functions().httpsCallable('fn');
+        findNewGame({whatever: "this doesn't matter"}) */
 
     // Create state and add in date info about it
     var state = {};
@@ -52,7 +57,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
             if (data['energy'+state.timeOfDay]){
                 gg("energyOptions").style.display = "none";
-                gg("energyHeader").innerHTML = "Nice!"
+                gg("energyHeader").innerHTML = "⚡️ Nice!"
                 gg("energyNote").style.display = "inline"
                 gg("energyNote").innerHTML = `You already logged your ${state.timeOfDay} energy.`
                 console.log("already done");

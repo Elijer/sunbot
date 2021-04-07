@@ -1,18 +1,25 @@
 @import "vars";
 
 html {
+    background: #5343a4;
     //@error: $bg-dark;
 }
 
 
-#body {
-    //font-family: 'Ubuntu', sans-serif;
+#body, #form, #date {
+    background: white;
+}
+
+#easterEgg {
+    position: fixed;
+    z-position: -999;
 }
 
 #title {
+    text-align: center;
     color: gold;
     background: #6e5cc8;
-    padding: 20px 10px 20px 10px;
+    padding: 15px 10px 15px 10px;
 }
 
 #energyNote {
@@ -41,6 +48,10 @@ h3 {
     padding: 20px 20px 20px 20px;
 }
 
+#date {
+    padding-top: 10px;
+}
+
 #today {
     padding-bottom: 15px;
 }
@@ -67,7 +78,7 @@ button {
   }
 
 .grid-item {
-    padding: 5px;
+    padding: 10px;
     background: #e8e8e8;
     //color: #6e5cc8;
 }
