@@ -4,7 +4,7 @@ import 'firebase/firestore';
 import { firebaseConfig } from "./helpers/firebaseConfig";
 import { handleEmulators } from "./helpers/handleEmulators";
 import { firestoreTest } from "./helpers/firestoreTest";
-import { gg } from "./helpers/utility";
+import { gg, set } from "./helpers/utility";
 import moment from 'moment';
 
 
@@ -36,6 +36,29 @@ document.addEventListener("DOMContentLoaded", event => {
     state.entryRef.get().then((doc) => {
         if (doc.exists) {
             console.log("Document data:", doc.data());
+            var data = doc.data();
+
+            if (data.outside){
+                setOutside(data.outside);
+            }
+
+            if (data.cryTally){
+                setCry(data.cryTally);
+            }
+
+            if (data.bcNumber){
+                state.bcNumber = data.bcNumber
+            }
+
+            if (data['energy'+state.timeOfDay]){
+                gg("energyOptions").style.display = "none";
+                gg("energyHeader").innerHTML = "Nice!"
+                gg("energyNote").style.display = "inline"
+                gg("energyNote").innerHTML = `You already logged your ${state.timeOfDay} energy.`
+                console.log("already done");
+            }
+
+
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
@@ -66,25 +89,19 @@ document.addEventListener("DOMContentLoaded", event => {
 });
 
 var initializeForm = function(state){
+    
     var outsideOptions = [gg("outsideYes"), gg("outsideNo")];
-
-/*     var setWithMerge = cityRef.set({
-        capital: true
-    }, { merge: true }); */
 
     outsideOptions.forEach(function(e){
         e.addEventListener("click", function(){
             var went;
             if (e.id === "outsideYes"){
-                e.style.background = "#6e5cc8";
-                outsideOptions[1].style.background = "#e8e8e8";
                 went = true;
-    
             } else {
-                outsideOptions[1].style.background = "#6e5cc8";
-                outsideOptions[0].style.background = "#e8e8e8";
                 went = false;
             }
+
+            setOutside(went);
     
             state.entryRef.set({
                 outside: went
@@ -170,10 +187,10 @@ var getTimeOfDay = function(m){
     var morningEnd = moment('11:59am', 'h:mma');
     var middayEnd = moment('6:00pm', 'h:mma');
 
-    if (m.isBefore(middayEnd) && theMoment.isAfter(morningEnd)){
+    if (m.isBefore(middayEnd) && m.isAfter(morningEnd)){
         timeOfDay = "midday"
         //midday
-    } else if (m.isBefore(morningEnd) && theMoment.isAfter(morningStart)){
+    } else if (m.isBefore(morningEnd) && m.isAfter(morningStart)){
         timeOfDay = "morning";
         //morning
     } else if (m.isAfter(middayEnd)){
@@ -197,25 +214,28 @@ var setDateHeader = function(m){
 }
 
 var createbCGrid = function(state){
+
+    console.log(state);
+
     var target = gg("bcGrid");
-    for (var i = 0; i < 28; i ++){
+    for (var i = 1; i < 29; i ++){
 
         var newEl =  document.createElement('div')
         newEl.classList.add("grid-item");
         newEl.id = `grid-item-${i}`;
-        newEl.innerHTML = i + 1;
+        newEl.innerHTML = i;
 
         newEl.addEventListener("click", function(e){
 
-            for (var j = 0; j < 28; j ++){
+            for (var j = 1; j < 29; j ++){
                 gg(`grid-item-${j}`).style.background = "#e8e8e8";
             }
 
             e.path[0].style.background = "#6e5cc8";
             
             state.entryRef.set({
-                bcNumber: i+1,
-            })
+                bcNumber: e.path[0].innerHTML,
+            }, {merge: true})
             .then(() => {
                 console.log("Document successfully written!");
             })
@@ -229,4 +249,27 @@ var createbCGrid = function(state){
         //`<div class="grid-item">1</div>`
 
     }
+
+    if(state.bcNumber){
+        gg(`grid-item-${state.bcNumber}`).style.background = "#6e5cc8";
+    }
+}
+
+var setOutside = function(o){
+    var options = [gg("outsideYes"), gg("outsideNo")];
+
+    if (o === true){
+        options[0].style.background = "#6e5cc8";
+        options[1].style.background = "#e8e8e8";
+    } else {
+        options[1].style.background = "#6e5cc8";
+        options[0].style.background = "#e8e8e8";
+    }
+
+}
+
+var setCry = function(c){
+    var cryNumber = gg("cryNumber")
+    cryNumber.style.background = "#6e5cc8";
+    cryNumber.innerHTML = c;
 }
