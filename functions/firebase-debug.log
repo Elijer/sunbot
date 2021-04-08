@@ -1,0 +1,23 @@
+[debug] [2021-04-08T01:10:16.550Z] ----------------------------------------------------------------------
+[debug] [2021-04-08T01:10:16.552Z] Command:       /usr/local/bin/node /Users/jah/.npm-global/bin/firebase deploy
+[debug] [2021-04-08T01:10:16.553Z] CLI Version:   9.2.1
+[debug] [2021-04-08T01:10:16.553Z] Platform:      darwin
+[debug] [2021-04-08T01:10:16.553Z] Node Version:  v12.18.1
+[debug] [2021-04-08T01:10:16.553Z] Time:          Wed Apr 07 2021 21:10:16 GMT-0400 (Eastern Daylight Time)
+[debug] [2021-04-08T01:10:16.554Z] ----------------------------------------------------------------------
+[debug] [2021-04-08T01:10:16.554Z] 
+[debug] [2021-04-08T01:10:16.563Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-08T01:10:16.563Z] > authorizing via signed-in user
+[debug] [2021-04-08T01:10:16.563Z] [iam] checking project ktperiodtracker for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2021-04-08T01:10:16.566Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/ktperiodtracker:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2021-04-08T01:10:16.768Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 08 Apr 2021 01:10:16 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=39","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-08T01:10:16.771Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/ktperiodtracker/serviceAccounts/ktperiodtracker@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2021-04-08T01:10:16.922Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 08 Apr 2021 01:10:16 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-08T01:10:16.924Z] > refreshing access token with scopes: []
+[debug] [2021-04-08T01:10:16.925Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-08T01:10:17.062Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Thu, 08 Apr 2021 01:10:17 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-08T01:10:17.082Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ktperiodtracker [none]
+[debug] [2021-04-08T01:10:17.317Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ktperiodtracker 200
