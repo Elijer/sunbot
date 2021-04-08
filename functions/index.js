@@ -3,7 +3,8 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 
 const twilio = require('twilio');
-const authToken = functions.config().twilio.sid;
+const accountSid = functions.config().twilio.sid;
+const authToken = functions.config().twilio.token;
 
 const client = new twilio(accountSid, authToken);
 
