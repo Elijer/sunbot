@@ -12,6 +12,9 @@
     },
     "hosting": {
       "port": 5000
+    },
+    "pubsub": {
+      "port": 8085
     }
   },
   "firestore": {
@@ -31,5 +34,8 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }
