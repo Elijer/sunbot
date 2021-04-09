@@ -278,3 +278,36 @@ var setCry = function(c){
     cryNumber.style.background = "#6e5cc8";
     cryNumber.innerHTML = c;
 }
+
+var checkEnergy = function(timeOfDay){
+
+    // returns a promise with the data of whether the specified energy time of day field has been filled out.
+
+    var answer = false
+    var theDate = moment().format('L');
+    var fsDate = theDate.replace(/\//g, "-");
+    var entriesRef = state.db.collection('entries').doc(fsDate);
+    
+
+    const promise = entriesRef.get().then(function(e){
+
+        const data = e.data();
+        const field = 'energy'+timeOfDay;
+        var answer = false;
+
+        if (data){
+            if (data[field]){
+                answer = true;
+            }
+        }
+        return answer
+    });
+    
+    return promise
+
+    /* Implementation:
+    checkEnergy('evening').then(e => {
+        console.log(e);
+    })
+    */
+}
