@@ -186,8 +186,7 @@ var initializeForm = function(state){
 }
 
 var getTimeOfDay = function(m){
-    var timeOfDay = gg("dayRegion");
-    var timesOfDay = ["morning", "afternoon", "evening"];
+    var timeOfDay;
     var morningStart = moment('2:00am', 'h:mma');
     var morningEnd = moment('11:59am', 'h:mma');
     var middayEnd = moment('6:00pm', 'h:mma');
@@ -201,7 +200,12 @@ var getTimeOfDay = function(m){
     } else if (m.isAfter(middayEnd)){
        timeOfDay = "evening";
         //evening
+    } else {
+        // after midnight
+        timeOfDay = "evening";
     }
+
+    console.log(timeOfDay);
 
     return timeOfDay
 }
