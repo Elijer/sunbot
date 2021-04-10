@@ -4,7 +4,6 @@ admin.initializeApp();
 
 const moment = require('moment-timezone');
 
-
 const twilio = require('twilio');
 const { response } = require("express");
 const accountSid = functions.config().twilio.sid;
@@ -22,17 +21,11 @@ exports.morning = functions.pubsub.schedule('30 8 * * *')
   .timeZone('America/New_York') // Users can choose timezone - default is America/Los_Angeles
   .onRun((context) => {
 
-    const reminder = 'Moonbot: 🌞 Good morning Katie! Hope your day is off to a good start. Just a reminder to take your birth control and start logging. https://ktperiodtracker.web.app/';
+    const reminder = 'Moonbot: 🌞 Good morning Katie! Hope your day is off to a good start. Just wanted to remind you to take your birth control and start logging. https://ktperiodtracker.web.app/';
 
-    const congrats = 'Moonbot: Yo! Good job already submitting your energy level this morning. You are ahead of the game. 🔥';
-
-    checkEnergy('morning').then(energyLevelLogged => {
-        if (energyLevelLogged){
-            sendText(congrats, katie);
-        } else if (!energyLevelLogged){
-            sendText(reminder, katie);
-        }
-    })
+    const congrats = 'Moonbot: Yo! Good job already submitting your energy level this morning. You are ahead of the GAME. 🔥';
+    
+    standardReminder('morning', reminder, congrats);
 
     return true;
 
@@ -43,16 +36,10 @@ exports.afternoon = functions.pubsub.schedule('5 16 * * *')
   .timeZone('America/New_York') // Users can choose timezone - default is America/Los_Angeles
   .onRun((context) => {
 
-    const msg = 'Moonbot: 🌳 Why it appears the sun is high in the sky. Time for you to log your afternoon energy, madame. https://ktperiodtracker.web.app/';
-    const msg2 = 'Moonbot: Hey! You beat me to it and submitted your afternoon energy level before I could remind you. Good work. Have a cat 🐈'
+    const reminder = 'Moonbot: 🌳 Why, it appears the sun is high in the sky. Time for you to log your afternoon energy senorita. https://ktperiodtracker.web.app/';
+    const congrats = 'Moonbot: Hey! You beat me to it and submitted your afternoon energy level before I could remind you. Good work. Have a cat 🐈'
 
-    checkEnergy('afternoon').then(e => {
-        if (e){
-            sendText(msg, katie);
-        } else {
-            sendText(msg2, katie);
-        }
-    })
+    standardReminder('afternoon', reminder, congrats);
 
     return true;
 
@@ -62,21 +49,30 @@ exports.evening = functions.pubsub.schedule('36 21 * * *')
   .timeZone('America/New_York') // Users can choose timezone - default is America/Los_Angeles
   .onRun((context) => {
 
-    const msg = 'Moonbot: Night is falling like a soft blanket on the world 🌙 Time for you to log your evening energy, as well as any other fields you missed or want to update. Hope your day had some magic in it 💛  https://ktperiodtracker.web.app/';
+    const reminder = 'Moonbot: Night is falling like a soft blanket on the world 🌙 Time for you to log your evening energy, as well as any other fields you missed or want to update. Hope your day had some magic in it 💛  https://ktperiodtracker.web.app/';
+    const congrats = 'Moonbot: Looks like you already submitted your evening energy level. Well done. Sleep well bambina ✨'
 
-    const msg2 = 'Moonbot: Looks like you already submitted your night energy level. Well done. Sleep well.'
-
-    checkEnergy('evening').then(e => {
-        if (e){
-            sendText(msg, katie);
-        } else {
-            sendText(msg2, katie);
-        }
-    })
+    standardReminder('evening', reminder, congrats);
 
     return true;
 
 });
+
+
+// Draft for a standard function, since all of these are mostly the same.
+var standardReminder = function(time, reminder, congrats){
+    checkEnergy(time).then(energyLevelLogged => {
+        if (energyLevelLogged){
+
+            sendText(congrats, katie);
+
+        } else if (!energyLevelLogged){
+
+            sendText(reminder, katie);
+
+        }
+    })
+}
 
 
 
@@ -84,8 +80,7 @@ exports.evening = functions.pubsub.schedule('36 21 * * *')
 var sendText = function(msg, recipient){
     const textMessage = {
         body: msg,
-        //to: recipient,
-        to: elijah,
+        to: recipient,
         from: twilioNumber
     }
     
@@ -130,7 +125,7 @@ var checkEnergy = function(timeOfDay){
 
 
 // Test function that runs whenever entries are updated. Can be used to test twilio.
-exports.test = functions.firestore
+/* exports.test = functions.firestore
     .document('entries/{entryId}')
     .onUpdate(event => {
 
@@ -139,4 +134,4 @@ exports.test = functions.firestore
         })
 
         return true
-    });
+    }); */
