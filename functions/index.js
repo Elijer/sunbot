@@ -15,6 +15,15 @@ const twilioNumber = "+14159695584"
 const elijah = "‪+15713024423‬";
 const katie = "+16184313089";
 
+var affirmations = [
+    'You\'re the bee\'s knees. 🐝 Cause you\'re sweet I guess? Since bees collect pollen on their knees? Although, pollen isn\'t sweet, that\'s honey. Idk.',
+    'When things get hard, I just like to remember that nobody really knows what their doing.',
+    'You have a beautiful singing voice and I hope you know it.',
+    'You is smart, you is kind, you is important. Great movie.',
+    'Do you ever wish you were a bird? That\'s pretty reckless though. Nobody has any idea how bad bird problems can be.',
+    'I hear babies cry, I watch them grow, They\'ll learn much more, Than I\'ll never know, And I think to myself, What a wonderful world'
+]
+
 
 // Morning, afternoon and evening functions
 exports.morning = functions.pubsub.schedule('30 8 * * *')
@@ -32,7 +41,7 @@ exports.morning = functions.pubsub.schedule('30 8 * * *')
 
 });
 
-exports.afternoon = functions.pubsub.schedule('5 16 * * *')
+exports.afternoon = functions.pubsub.schedule('5 14 * * *')
   .timeZone('America/New_York') // Users can choose timezone - default is America/Los_Angeles
   .onRun((context) => {
 
