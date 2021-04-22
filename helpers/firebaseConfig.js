@@ -1,9 +1,9 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyBclpT9uGJ4UCmKBLJ_vhaqJoQ7AEO1rdE",
-  authDomain: "ktperiodtracker.firebaseapp.com",
-  projectId: "ktperiodtracker",
-  storageBucket: "ktperiodtracker.appspot.com",
-  messagingSenderId: "230595623133",
-  appId: "1:230595623133:web:eb49f4847655c3364cc334",
-  measurementId: "G-L5N97SMBTE"
+  apiKey: "AIzaSyDXmioeKxgye7ub1Ux087Al5A6oD0V9aWc",
+  authDomain: "sunbot0.firebaseapp.com",
+  projectId: "sunbot0",
+  storageBucket: "sunbot0.appspot.com",
+  messagingSenderId: "443268913162",
+  appId: "1:443268913162:web:76ebe95f7a9e36a596a7f3",
+  measurementId: "G-K3W9SD9DV1"
 };
