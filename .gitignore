@@ -1,3 +1,7 @@
 dist/
 .cache/
 firebase-debug.log
+.DS_Store
+firestore-debug.log
+pubsub-debug.log
+.runtimeconfig.json
