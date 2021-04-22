@@ -12,7 +12,7 @@
 }
 
 html {
-    background: $tg;
+    background: $tg3;
     //@error: $bg-dark;
 }
 
@@ -49,7 +49,8 @@ h3 {
 }
 
 #date, #timeOfDay {
-    color: grey;
+/*     color: $theme4; */
+    color: lightgrey;
 
     #day {
         float: left;

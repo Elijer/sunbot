@@ -1,8 +1,11 @@
 $highlight: orange;
 $theme: #302276;
 $theme2: rgb(105, 185, 255);
+$theme3: rgb(105, 155, 255);
+$theme4: rgb(70, 110, 254);
 $tg: linear-gradient($theme, $highlight);
-$tg2: linear-gradient($theme2, rgb(105, 155, 255));
+$tg2: linear-gradient($theme2, $theme3);
+$tg3: linear-gradient($theme3, $theme4);
 /* $grey: rgb(202, 202, 202);
 $darg: rgb(47, 47, 47);
 $poiple: #5343a4; */
