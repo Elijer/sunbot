@@ -12,7 +12,7 @@
 }
 
 html {
-    background: #5343a4;
+    background: $tg;
     //@error: $bg-dark;
 }
 
@@ -27,8 +27,9 @@ html {
 
 #title {
     text-align: center;
-    color: gold;
-    background: #6e5cc8;
+    text-shadow: 1px 1px rgb(128, 128, 255);
+    color: rgb(255, 191, 72);
+    background: $tg2;
     padding: 15px 10px 15px 10px;
 
     h1  {

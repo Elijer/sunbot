@@ -1,12 +1,8 @@
-$bg-dark: #272931;
-$bg: #a2a4b2;
-$bg-auth: #3e415f;
-$sq: #afb1c6;
-$type-shadow: #ff0000;
-$shadow: #2a2b32;
-
-$message-text: $sq;
-$message-shadow: #875f5f;
-
-// MESSAGE
-$welcome: #dadce9;
+$highlight: orange;
+$theme: #302276;
+$theme2: rgb(105, 185, 255);
+$tg: linear-gradient($theme, $highlight);
+$tg2: linear-gradient($theme2, rgb(105, 155, 255));
+/* $grey: rgb(202, 202, 202);
+$darg: rgb(47, 47, 47);
+$poiple: #5343a4; */
